@@ -107,6 +107,8 @@ The E-commerce API Application uses the following dependencies:
 
 In the Employee Department Company Project , data flows through various components to handle employee perations. Here's an overview of the data flow:
 
+   
+
 1.**Employee Entity**:
 
    - **Controller Layer**
@@ -124,6 +126,166 @@ In the Employee Department Company Project , data flows through various componen
 
      }
      ```
+
+     - **Service Layer**
+
+     The `EmployeeService` contains business logic and interacts with the `EmployeeRepository` to perform CRUD operations on employee data.
+
+     ```java
+     // EmployeeService.java
+
+     @Service
+     public class EmployeeService {
+         // Implement employee-related service methods
+     }
+     ```
+
+   - **Repository Layer**
+
+     The `EmployeeRepository` manages data access to the employee entity using Spring Data JPA.
+
+     ```java
+     // EmployeeRepository.java
+
+     @Repository
+     public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+         // Define custom queries or repository methods if needed
+     }
+     ```
+
+   - **Employee Entity**
+
+     The `Employee` entity represents the structure of employee data in the database.
+
+     ```java
+     // Employee.java (Employee Entity)
+
+     @Entity
+     public class Employee {
+         // Define employee attributes, getters, setters, etc.
+     }
+     ```
+
+2- **Department Entity**:
+
+  -**Controller Layer**
+
+   The `DepartmentController` handles HTTP requests related to addresses and routes them to the `DepartmentService`.
+
+     ```java
+
+     //DepartmentControllerr
+
+     @RestController
+     @RestMapping("/department")
+     public class DepartmentController{
+     
+     // Define department-related endpoints and methods
+
+     }
+     ```
+
+   - **Service Layer**
+
+     The `DepartmentService` contains business logic and interacts with the `DepartmentRepository` to perform CRUD operations on department data.
+
+     ```java
+     // DepartmentService.java
+
+     @Service
+     public class DepartmentService {
+         // Implement department-related service methods
+     }
+     ```
+
+   - **Repository Layer**
+
+     The `DepartmentRepository` manages data access to the department entity using Spring Data JPA.
+
+     ```java
+     // DepartmentRepository.java
+
+     @Repository
+     public interface DepartmentRepository extends JpaRepository<Department, Long> {
+         // Define custom queries or repository methods if needed
+     }
+     ```
+
+   - **Department Entity**
+
+     The `Department` entity represents the structure of employee data in the database.
+
+     ```java
+     // Departmentv.java (Employee Entity)
+
+     @Entity
+     public class Department {
+         // Define employee attributes, getters, setters, etc.
+     }
+     ```
+
+
+  
+3- **Address Entity**:
+
+  -**Controller Layer**
+
+   The `AddressController` handles HTTP requests related to addresses and routes them to the `AddressService`.
+
+     ```java
+
+     //AddressControllerr
+
+     @RestController
+     @RestMapping("/address")
+     public class AddressController{
+     
+     // Define department-related endpoints and methods
+
+     }
+     ```
+
+   - **Address Layer**
+
+     The `AddressService` contains business logic and interacts with the `AddressRepository` to perform CRUD operations on department data.
+
+     ```java
+     // AddressService.java
+
+     @Service
+     public class AddressService {
+         // Implement Address-related service methods
+     }
+     ```
+
+   - **Repository Layer**
+
+     The `AddressRepository` manages data access to the department entity using Spring Data JPA.
+
+     ```java
+     // AddressRepository.java
+
+     @Repository
+     public interface AddressRepository extends JpaRepository<Address, Long> {
+         // Define custom queries or repository methods if needed
+     }
+     ```
+
+   - **Address Entity**
+
+     The `Address` entity represents the structure of employee data in the database.
+
+     ```java
+     // Address.java (Address Entity)
+
+     @Entity
+     public class Address {
+         // Define address attributes, getters, setters, etc.
+     }
+     ```
+
+     
+
      
 
 
