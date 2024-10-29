@@ -9,8 +9,12 @@
 <a href="Spring Boot url" >
     <img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-3.1.4-brightgreen.svg" />
 </a>
-<a href="License url" >
-    <img alt="BSD Clause 3" src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg"/>
-</a>
 </p>
+
+----
+<p align ="left" >
+
+##Overview
+
+This project, "Employee Department Mapping Project", is a Spring Boot application that demonstrates a one-to-many mapping between Department and Employee entities. In addition to a one-to-many mapping between Title and Department and Title and Employee. In addition to a one-to-many relationship between Employee and EmployeeAttendance entities. In addition to a one-to-many mapping between Employee and Task entities, it provides a set of RESTful API endpoints for creating, retrieving, updating, deleting Titles, Departments, Employees, Tasks, Attendance, and some other operations. This project serves as a basis for managing employee data in specific departments, recording their attendance, and assigning tasks to employees.
 
