@@ -348,7 +348,7 @@ In the Employee Department Company Project , data flows through various componen
 
   -**Controller Layer**
 
-   The `EmployeeAttendanceController` handles HTTP requests related to addresses and routes them to the `EmployeeAttendanceService`.
+   The `EmployeeAttendanceController` handles HTTP requests related to employeeAttendance and routes them to the `EmployeeAttendanceService`.
 
    ```java
 
@@ -410,13 +410,71 @@ In the Employee Department Company Project , data flows through various componen
 |Column Name | Data Type | Description                   |
 |------------ |-----------|------------------------------|
 |   id        |    BIGINT (Primary Key) | Unique identifier for each employee | 
-|   name      |    VARCHAR(255) | name of the employee                                    
-|   email     |    VARCHAR(255) | email of the employee    |
-|   dob       |  DATE      | employee's date of birth       |
-|  salary     |  DOUBLE   | employee of salary             |
-|  car        |  VARCHAR(255) | employee of car type       |
-|department_id|  BIGINT | employee of department number    |
-| address_id  | BIGINT |  employee of address number        |
+|   name      |    VARCHAR(255) | Name name of the employee                                    
+|   email     |    VARCHAR(255) | Email email of the employee    |
+|   dob       |  DATE      | Dob employee's date of birth       |
+|  salary     |  DOUBLE   | Salary employee of salary             |
+|  car        |  VARCHAR(255) | Car employee of car type       |
+|department_id|  BIGINT (Foreign Key) | Department ID associated with the employee    |
+| address_id  | BIGINT (Foreign Key) |  Address ID associated with the employee        |
+
+
+### Department Table 
+
+|Column Name | Data Type | Description                   |
+|------------ |-----------|------------------------------|
+|   id        |    BIGINT (Primary Key) | Unique identifier for each department | 
+|   name      |    VARCHAR(255) | Name name of the department    |                                
+| address_id  | BIGINT (Foreign Key)|   Address ID associated with the department        |
+
+
+### Address Table 
+ 
+| Column Name | Data Type   | Description                            |
+| ----------- | ----------- | -------------------------------------- |
+| id          | BIGINT (Primary Key) | Unique identifier for each address    |
+| city        | VARCHAR(255) | City where the address is located      |
+| country      | VARCHAR(255) | Country or region of the address         |
+| postal     | VARCHAR(20)  | Postal code or ZIP code of the address |
+
+
+### Task Table 
+
+| Column Name | Data Type   | Description                            |
+| ----------- | ----------- | -------------------------------------- |
+| id          | BIGINT (Primary Key) | Unique identifier for each task    |
+| start_date  | DATE    | Start_Date date start task       |
+| end_date    | DATE    | End_Date date end task       |
+|finished_date| DATE    | Finished Date  date the task was completed      |
+| is_finished | TINYINT(1)  | Task tash is finished or not  |
+|   name      |    VARCHAR(255) | Name name of the task    |
+| points          | BIGINT     |Points The number of points an employee earns when completing a task|
+| employee_id  | BIGINT (Foreign Key) |   Employee ID associated with the task        |
+
+### Employee Attendance Table 
+
+| Column Name | Data Type   | Description                            |
+| ----------- | ----------- | -------------------------------------- |
+| id          | BIGINT (Primary Key) | Unique identifier for each attendance    |
+| entrytime   |  TIMEDATE    | EntryTime employee entry time to the company     |
+| exittime    |  TIMEDATE    | ExitTime employee exit time to the company     |
+| num_hours    | DOUBLE    | Num_Hours   Number of hours an employee works during the day  |
+| is_finished | TINYINT(1)  | Task tash is finished or not  |
+| employee_id  | BIGINT (Foreign Key) |   Employee ID associated with the employeeAttendanc        |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
      
