@@ -410,13 +410,13 @@ In the Employee Department Company Project , data flows through various componen
 |Column Name | Data Type | Description                   |
 |------------ |-----------|------------------------------|
 |   id        |    BIGINT (Primary Key) | Unique identifier for each employee | 
-|   name      |    VARCHAR(255) name of the employee                                    
-|   email     |    VARCHAR(255) email of the employee    |
-|   dob       |  DATE     employee's date of birth       |
-|  salary     |  DOUBLE   employee of salary             |
-|  car        |  VARCHAR(255) employee of car type       |
-|department_id|  BIGINT employee of department number    |
-| address_id  | BIGINT employee of address number        |
+|   name      |    VARCHAR(255) | name of the employee                                    
+|   email     |    VARCHAR(255) | email of the employee    |
+|   dob       |  DATE      | employee's date of birth       |
+|  salary     |  DOUBLE   | employee of salary             |
+|  car        |  VARCHAR(255) | employee of car type       |
+|department_id|  BIGINT | employee of department number    |
+| address_id  | BIGINT |  employee of address number        |
 
 
      
