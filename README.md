@@ -62,7 +62,7 @@ The E-commerce API Application uses the following dependencies:
     ```
 
 - **Project Lombok (Optional)**
-  - **Description:** A library that simplifies Java code by reducing boilerplate code, such as getters and setters.
+  - **Description:** A library that simplifies Java code by reducing boilerplate code, such as getters , setters and Parameterized constructor.
   - **Maven Dependency:**
     ```xml
     <dependency>
@@ -103,4 +103,27 @@ The E-commerce API Application uses the following dependencies:
         <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
     ```
+## Flow Date
+
+In the Employee Department Company Project , data flows through various components to handle employee perations. Here's an overview of the data flow:
+
+1.**Employee Entity**:
+
+   - **Controller Layer**
+
+     The `EmployeeController` handles HTTP requests related to employees and routes them to the `EmployeeService`.
+
+     ```java
+     //EmployeeController
+
+     @RestController
+     @RestMapping("/employee")
+     public class EmployeeController{
+     
+     // Define employee-related endpoints and methods
+
+     }
+     ```
+     
+
 
