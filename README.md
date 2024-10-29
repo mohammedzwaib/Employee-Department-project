@@ -172,7 +172,7 @@ In the Employee Department Company Project , data flows through various componen
 
    The `DepartmentController` handles HTTP requests related to addresses and routes them to the `DepartmentService`.
 
-     ```java
+   ```java
 
      //DepartmentControllerr
 
@@ -183,7 +183,7 @@ In the Employee Department Company Project , data flows through various componen
      // Define department-related endpoints and methods
 
      }
-     ```
+   ```
 
    - **Service Layer**
 
@@ -232,7 +232,7 @@ In the Employee Department Company Project , data flows through various componen
 
    The `AddressController` handles HTTP requests related to addresses and routes them to the `AddressService`.
 
-     ```java
+   ```java
 
      //AddressControllerr
 
@@ -243,7 +243,7 @@ In the Employee Department Company Project , data flows through various componen
      // Define department-related endpoints and methods
 
      }
-     ```
+   ```
 
    - **Address Layer**
 
@@ -284,8 +284,142 @@ In the Employee Department Company Project , data flows through various componen
      }
      ```
 
-     
+  
+4- **Task Entity**:
 
+  -**Controller Layer**
+
+   The `TaskController` handles HTTP requests related to addresses and routes them to the `TaskService`.
+
+   ```java
+
+     //TaskControllerr
+
+     @RestController
+     @RestMapping("/task")
+     public class TaskController{
+     
+     // Define department-related endpoints and methods
+
+     }
+   ```
+
+   - **Task Layer**
+
+     The `TaskService` contains business logic and interacts with the `TaskRepository` to perform CRUD operations on department data.
+
+     ```java
+     // TaskService.java
+
+     @Service
+     public class TaskService {
+         // Implement Task-related service methods
+     }
+     ```
+
+   - **Repository Layer**
+
+     The `TaskRepository` manages data access to the task entity using Spring Data JPA.
+
+     ```java
+     // TaskRepository.java
+
+     @Repository
+     public interface TaskRepository extends JpaRepository<Task, Long> {
+         // Define custom queries or repository methods if needed
+     }
+     ```
+
+   - **Task Entity**
+
+     The `Task` entity represents the structure of task data in the database.
+
+     ```java
+     // Task.java (Task Entity)
+
+     @Entity
+     public class Task {
+         // Define task attributes, getters, setters, etc.
+     }
+     ```
+     
+  
+5- **EmployeeAttendance Entity**:
+
+  -**Controller Layer**
+
+   The `EmployeeAttendanceController` handles HTTP requests related to addresses and routes them to the `EmployeeAttendanceService`.
+
+   ```java
+
+     //EmployeeAttendanceControllerr
+
+     @RestController
+     @RestMapping("/employeeAttendance")
+     public class EmployeeAttendanceController{
+     
+     // Define employeeAttendance-related endpoints and methods
+
+     }
+   ```
+
+   - **EmployeeAttendance Layer**
+
+     The `EmployeeAttendanceService` contains business logic and interacts with the `EmployeeAttendanceRepository` to perform CRUD operations on department data.
+
+     ```java
+     // EmployeeAttendanceService.java
+
+     @Service
+     public class EmployeeAttendanceService {
+         // Implement EmployeeAttendance-related service methods
+     }
+     ```
+
+   - **Repository Layer**
+
+     The `TaskRepository` manages data access to the task entity using Spring Data JPA.
+
+     ```java
+     // EmployeeAttendanceRepository.java
+
+     @Repository
+     public interface EmployeeAttendanceRepository extends JpaRepository<EmployeeAttendance, Long> {
+         // Define custom queries or repository methods if needed
+     }
+     ```
+
+   - **EmployeeAttendance Entity**
+
+     The `EmployeeAttendance` entity represents the structure of task data in the database.
+
+     ```java
+     // Task.java (EmployeeAttendance Entity)
+
+     @Entity
+     public class EmployeeAttendance {
+         // Define task attributes, getters, setters, etc.
+     }
+     ```
+
+## Deseign Table
+   The project's database design includes tables for employees and addresses, each with specific fields. This design ensures data integrity and organized storage.
+
+### Employee Table
+
+|Column Name | Data Type | Description                   |
+|------------ |-----------|------------------------------|
+|   id        |    BIGINT (Primary Key) | Unique identifier for each employee | 
+|   name      |    VARCHAR(255) name of the employee                                    
+|   email     |    VARCHAR(255) email of the employee    |
+|   dob       |  DATE     employee's date of birth       |
+|  salary     |  DOUBLE   employee of salary             |
+|  car        |  VARCHAR(255) employee of car type       |
+|department_id|  BIGINT employee of department number    |
+| address_id  | BIGINT employee of address number        |
+
+
+     
      
 
 
