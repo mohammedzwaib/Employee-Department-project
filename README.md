@@ -463,8 +463,206 @@ In the Employee Department Company Project , data flows through various componen
 | employee_id  | BIGINT (Foreign Key) |   Employee ID associated with the employeeAttendanc        |
 
 
+## Data Structures
+
+The project utilizes the following data structures to represent employees and address data:
+
+#### Employee Class
+
+The `Employee` class defines the structure for employee data and includes fields such as `id`, `name`,  `salary` ,  `email` ,  `dob` ,`car` ,  a reference to the associated `Department ` 
+ and a reference to the associated `Address`.
+
+```java
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Employee {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String name;
+
+	private Double salary;
+
+	private String email;
+
+	private LocalDate dob;
+	
+	private String car;
+
+	@Column(name = "department_id")
+	private Long departmentId;
+	
+	@Column(name = "address_id")
+	private Long addressId;
+	
+	
+	@OneToMany(mappedBy = "employee" )
+	private List<Task> task;
+	
+	@ManyToOne
+	@JoinColumn(name ="address_id" , updatable = false , insertable = false )
+	private Address address;
 
 
+	@ManyToOne
+	@JoinColumn( name = "department_id" , insertable = false, updatable = false)
+	private Department department;
+	@JsonIgnore
+	
+	
+}
+```
+#### ArrayList Usage
+
+ArrayLists can be used to represent lists of items in your application. For example, you can use an ArrayList to represent a list of tasks with their associated  employee.
+and you can use an ArrayList to represent a list of employee with their associated  department.
+
+
+#### Department Class
+
+The `Department` class defines the structure for address data and includes fields such as `id`, `name`, `country` and  a reference to the associated `Address` 
+
+```java
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "hr_department")
+public class Department {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
+	
+	@Column(name = "address_id")
+	private Long addressId;	
+	
+
+	@OneToMany(mappedBy = "department")
+	private List<Employee> employees;
+	
+	@ManyToOne
+	@JoinColumn(name = "address_id" , updatable = false , insertable = false )
+	private Address address;
+
+	
+
+}
+
+```
+
+#### Address Class
+
+The `Address` class defines the structure for address data and includes fields such as `id`, `city`, `country`, `postal`
+
+```java
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Address {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	private String city;
+	private String country;
+	private Long postal;
+	
+	
+	@OneToMany(mappedBy = "address" , 
+			cascade = CascadeType.ALL ,
+			orphanRemoval = false)
+	private List<Employee> employees;
+	
+	@OneToMany(mappedBy = "address" ,
+			   cascade  = CascadeType.ALL ,
+			   orphanRemoval = false)
+	private List<Department> department;
+
+
+}
+```
+
+#### Task Class
+
+The `Task` class defines the structure for address data and includes fields such as `id`, `nameTask`, `startDate`, `endDate` ,  `isFinished`, `finishedDate` , `points`
+
+```java
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "task")
+public class Task {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nameTask;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	
+	@Column(columnDefinition = "boolean default false" )
+	private Boolean isFinished;
+	
+	@Column(name = "finishedDate")
+	private LocalDate finishedDate;
+	private Long points;
+	private Long employee_id;
+	
+
+	@ManyToOne
+	@JoinColumn(name = "employee_id" , updatable = false , insertable = false)
+	private Employee employee;
+	
+}
+```
+
+#### Task Class
+
+The `Task` class defines the structure for address data and includes fields such as `id`, `entrytime`, `exittime`, `num_hours` and  a reference to the associated `ُEmployee` 
+
+```java
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EmployeeAttendance {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id ;
+	
+	private Timestamp entrytime;
+
+	private Timestamp exittime;
+	
+	private Double num_hours;
+	
+	private Long employee_id;
+
+	@ManyToOne
+	@JoinColumn(name = "employee_id" , insertable = false , updatable = false)
+	
+	private Employee employee;
+	
+	public void setLogIn(Long employee_id , Timestamp  currentDate) {
+		
+		this.entrytime = currentDate;
+		this.setEmployee_id(employee_id);
+		
+	}	
+}
+```
 
 
 
